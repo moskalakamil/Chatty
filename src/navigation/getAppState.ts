@@ -1,23 +1,19 @@
 import {AppState, useAppStateStore} from "@src/stores/app-state-store";
-import {
-  useShowIntroScreensStore,
-} from "@src/stores/show-intro-screens";
+import {useAuthStore} from "@src/stores/auth-store";
 
-export async function getAppState(
-  showIntroScreens: boolean,
-): Promise<AppState> {
-  if (showIntroScreens) {
-    return "NEED_AUTH";
+export async function getAppState(token: string | null): Promise<AppState> {
+  if (token) {
+    return "AUTHORIZED";
   }
 
-  return "AUTHORIZED";
+  return "NEED_AUTH";
 }
 
 export async function initApp(): Promise<[AppState, unknown]> {
   try {
-    const showInfoScreens = useShowIntroScreensStore.getState().showIntroScreens;
+    const token = useAuthStore.getState().token;
 
-    const nextState = await getAppState(showInfoScreens);
+    const nextState = await getAppState(token);
     useAppStateStore.getState().setAppState(nextState);
     return [nextState, null];
   } catch (e) {

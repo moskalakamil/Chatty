@@ -8,13 +8,14 @@ import Toast from "react-native-toast-message";
 import {GestureHandlerRootView} from "react-native-gesture-handler";
 import {useConnectionAlert} from "@src/utils/hooks/useConnectionAlert";
 import {toastConfig} from "@src/utils/toast";
-import { ApolloClient, InMemoryCache, ApolloProvider } from '@apollo/client';
-
+import {ApolloProvider} from "@apollo/client";
+import {client} from "@src/api/client";
 
 const AppEntry = () => {
   useConnectionAlert();
   return (
-    <GestureHandlerRootView style={{flex: 1, width: "100%"}}>
+    <ApolloProvider client={client}>
+      <GestureHandlerRootView style={{flex: 1, width: "100%"}}>
         <SafeAreaProvider>
           <KeyboardAvoidingView
             style={{flex: 1}}
@@ -25,7 +26,8 @@ const AppEntry = () => {
             </ThemeProvider>
           </KeyboardAvoidingView>
         </SafeAreaProvider>
-    </GestureHandlerRootView>
+      </GestureHandlerRootView>
+    </ApolloProvider>
   );
 };
 

@@ -1,5 +1,11 @@
 {
+  "error": {
+    "required": "This field is required",
+    "password-min": "Password must be at least {{count}} characters long",
+    "email": "Invalid email"
+  },
   "english": "English",
   "noInternetConnection": "No internet connection",
-  "languages": "Languages"
+  "languages": "Languages",
+  "login": "Login"
 }

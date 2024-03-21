@@ -6,9 +6,9 @@ import {
 import {Platform, StatusBar} from "react-native";
 import {initApp} from "./getAppState";
 import {useAppStateStore} from "@src/stores/app-state-store";
-import {hideAsync} from 'expo-splash-screen';
+import {hideAsync} from "expo-splash-screen";
 import {MainStack} from "@src/navigation/MainStack";
-import {Icon} from "@src/assets/icons/Icon";
+import {AuthStack} from "@src/features/auth/navigation/AuthStack";
 
 export const navigationRef = createNavigationContainerRef();
 
@@ -18,7 +18,7 @@ export const AppNavigator = () => {
 
   useEffect(() => {
     initApp().then(() => {
-        hideAsync();
+      hideAsync();
     });
   }, []);
 
@@ -32,7 +32,7 @@ export const AppNavigator = () => {
       <StatusBar
         barStyle={Platform.OS === "ios" ? "dark-content" : "light-content"}
       />
-      {appState === "NEED_AUTH" && <Icon name={"plus"} />}
+      {appState === "NEED_AUTH" && <AuthStack />}
       {appState === "AUTHORIZED" && <MainStack />}
     </NavigationContainer>
   );
