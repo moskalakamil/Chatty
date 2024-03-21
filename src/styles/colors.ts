@@ -2,30 +2,33 @@ import twColors from "tailwindcss/colors";
 
 export const extendedColors = {
   primary: {
-    "50": "#f0f7fe",
-    "100": "#deecfb",
-    "200": "#c4e0f9",
-    "300": "#9bcbf5",
-    "400": "#6cafee",
-    "500": "#4a91e7",
-    "600": "#3574db",
-    "700": "#2b5ec5",
-    "800": "#2a4ea3",
-    "900": "#274481",
-    "950": "#1c2c4f",
+    "200": "#C692FD",
+    "400": "#993AFC",
+    "500": "#5603AD",
+    "800": "#5603AD ",
+    "950": "#390273",
   },
   secondary: {
-    "50": "#f0fdf9",
-    "100": "#cdfaee",
-    "200": "#9af5dc",
-    "300": "#60e8c9",
-    "400": "#2bc5a6",
-    "500": "#16b698",
-    "600": "#0f927c",
-    "700": "#107565",
-    "800": "#125d52",
-    "900": "#144d45",
-    "950": "#052e2a",
+    "50": "#F0F8FF",
+    "300": "#B6DEFD",
+    "500": "#259DFA",
+  },
+  gray: {
+    "50": "#D9DAE0",
+    "300": "#BFC1CC",
+    "500": "#9FA2B2",
+  },
+  error: {
+    "500": "#FF445A",
+  },
+  active: {
+    "500": "#A8FF76",
+  },
+  black: {
+    "500": "#1A1A1A",
+  },
+  white: {
+    "500": "#FFFFFF",
   },
   danger: {
     "50": "#fef3ee",
@@ -56,13 +59,19 @@ export const extendedColors = {
 };
 
 export const colors = {
-  ...(Object.keys(twColors).reduce((acc, key) => {
-    if (key !== "lightBlue" && key !== "blueGray" && key !== "trueGray" && key !== "coolGray" && key !== "warmGray") {
-      //@ts-ignore
-      acc[key] = twColors[key];
-    }
-    return acc;
-  }, {}) as typeof twColors),
+  // ...(Object.keys(twColors).reduce((acc, key) => {
+  //   if (
+  //     key !== "lightBlue" &&
+  //     key !== "blueGray" &&
+  //     key !== "trueGray" &&
+  //     key !== "coolGray" &&
+  //     key !== "warmGray"
+  //   ) {
+  //     //@ts-ignore
+  //     acc[key] = twColors[key];
+  //   }
+  //   return acc;
+  // }, {}) as typeof twColors),
   ...extendedColors,
 };
 
@@ -74,12 +83,12 @@ type FlatColorKeys = {
 }[keyof FlatColors];
 
 function flattenColors(myColors: FlatColors): Record<FlatColorKeys, string> {
-  const flattenedColors: Record<FlatColorKeys, string> = {}
+  const flattenedColors = {} as Record<FlatColorKeys, string>;
   for (const key in myColors) {
-    const shades: any = myColors[key as keyof typeof myColors];
+    const shades: any = myColors[key as keyof FlatColors];
     for (const shadeKey in shades) {
       const colorKey = `${key}${shadeKey}`;
-      flattenedColors[colorKey] = shades[shadeKey];
+      flattenedColors[colorKey as FlatColorKeys] = shades[shadeKey];
     }
   }
   return flattenedColors;
