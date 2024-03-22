@@ -1,21 +1,26 @@
 import React from "react";
 import {RegisterForm} from "./RegisterForm";
 import {View} from "react-native";
-import {AppImage} from "@src/common/image/AppImage.tsx";
-import {images} from "@src/assets/images.ts";
+import HeadingText from "@src/features/auth/components/HeadingText";
+import {useT} from "@src/i18n/useTranslation";
+import AuthModeToggle from "@src/features/auth/components/AuthModeToggle";
+import {Terms} from "@src/features/auth/components/Terms";
 
 export const RegisterScreen = () => {
+  const {t} = useT();
   return (
-    <View className="items-center justify-center flex-1 flex-grow">
-      <View
-        className={"flex-1 w-full items-center mt-24 justify-center flex-row"}>
-        <AppImage
-          source={images.logo}
-          className={"w-[90%] object-contain"}
-          resizeMode={"contain"}
+    <View className="justify-between pt-20 flex-1 w-full px-4 flex-grow">
+      <View className={"flex-1"}>
+        <HeadingText text={t("auth.createAccount")} />
+        <RegisterForm />
+      </View>
+      <View className={"pb-10 pt-3"}>
+        <Terms />
+        <AuthModeToggle
+          mode={"signup"}
+          text={[t("auth.alreadyHaveAccount"), t("auth.login")]}
         />
       </View>
-      <RegisterForm />
     </View>
   );
 };

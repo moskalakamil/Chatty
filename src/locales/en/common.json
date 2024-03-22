@@ -2,11 +2,27 @@
   "error": {
     "required": "This field is required",
     "password-min": "Password must be at least {{count}} characters long",
-    "email": "Invalid email"
+    "email": "Invalid email",
+    "passwordsDoNotMatch": "Passwords do not match"
   },
   "fontsLoadingError": "Fonts loading error. Please restart the application",
   "english": "English",
   "noInternetConnection": "No internet connection",
   "languages": "Languages",
-  "login": "Login"
+  "failedToOpenLink": "Failed to open link",
+  "auth": {
+    "login": "Log in",
+    "signUp": "Sign up",
+    "welcomeBack": "Welcome back",
+    "loginSubtitle": "Log in and stay in touch with everyone!",
+    "createAccount": "Create account",
+    "email": "e-mail address",
+    "password": "password",
+    "firstName": "first name",
+    "lastName": "last name",
+    "passwordConfirmation": "password confirmation",
+    "terms": "By signing up you agree with <Terms><Text>Terms and Conditions</Text></Terms> and <Privacy><Text>Privacy Policy</Text></Privacy>",
+    "alreadyHaveAccount": "Already have an account?",
+    "dontHaveAccount": "Don’t have an account?"
+  }
 }

@@ -54,20 +54,25 @@ export const LoginForm = () => {
   };
 
   return (
-    <>
-      <View className={"w-full"}>
-        <AppInputControlled label={"test"} control={control} name={"email"} />
+    <View className={"w-full flex-grow flex-1 justify-between px-5"}>
+      <View>
         <AppInputControlled
+          label={t("auth.email")}
+          control={control}
+          name={"email"}
+        />
+        <AppInputControlled
+          label={t("auth.password")}
           control={control}
           name={"password"}
           mode={"password"}
         />
-        <AppButton
-          title={t("login")}
-          loading={loading}
-          onPress={handleSubmit(onSubmit)}
-        />
       </View>
-    </>
+      <AppButton
+        title={t("auth.login")}
+        loading={loading}
+        onPress={handleSubmit(onSubmit)}
+      />
+    </View>
   );
 };

@@ -22,11 +22,11 @@ export const lightTheme = createTheme({
   textVariants: {
     h1: {
       fontFamily: "Poppins-Bold",
-      fontSize: 36,
+      fontSize: 28,
     },
     h2: {
       fontFamily: "Poppins-Bold",
-      fontSize: 28,
+      fontSize: 22,
     },
     h3: {
       fontFamily: "Poppins-Bold",
@@ -52,8 +52,12 @@ export const lightTheme = createTheme({
     },
     caption: {
       fontFamily: "Poppins-Regular",
-      fontSize: 10,
-      lineHeight: 10,
+      fontSize: 11,
+      lineHeight: 13,
+    },
+    body: {
+      fontFamily: "Poppins-Regular",
+      fontSize: 14,
     },
   },
 });
