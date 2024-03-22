@@ -4,6 +4,7 @@
     "password-min": "Password must be at least {{count}} characters long",
     "email": "Invalid email"
   },
+  "fontsLoadingError": "Fonts loading error. Please restart the application",
   "english": "English",
   "noInternetConnection": "No internet connection",
   "languages": "Languages",

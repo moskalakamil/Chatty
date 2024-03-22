@@ -5,6 +5,7 @@ import {
 } from "@react-navigation/native-stack";
 import {LoginScreen} from "@src/features/auth/login/LoginScreen";
 import {RegisterScreen} from "@src/features/auth/register/RegisterScreen";
+import {getColors} from "@src/theme/theme";
 
 export type AuthStackNavParamList = {
   Login: undefined;
@@ -14,7 +15,7 @@ export type AuthStackNavParamList = {
 const screenOptions: NativeStackNavigationOptions = {
   headerShown: false,
   contentStyle: {
-    backgroundColor: "white",
+    backgroundColor: getColors("secondary300"),
   },
 };
 

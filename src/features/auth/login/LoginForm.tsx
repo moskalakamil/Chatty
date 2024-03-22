@@ -8,7 +8,7 @@ import {View, Text, Pressable} from "react-native";
 import {useAuthNavigation} from "@src/features/auth/navigation/useAuthNavigation";
 import {useLoginMutation} from "@src/queries/auth.queries";
 import {AppInputControlled} from "@src/features/common/inputs/AppInputControlled";
-import {AppButton} from "@src/features/buttons/AppButton";
+import {AppButton} from "@src/features/common/buttons/AppButton";
 
 function getSchema(t: TFunction) {
   const schema = z.object({
@@ -40,7 +40,7 @@ export const LoginForm = () => {
     resolver: zodResolver(schema),
   });
 
-  const [loginMutation] = useLoginMutation(data => {
+  const [loginMutation, {loading}] = useLoginMutation(data => {
     console.log("success");
   });
 
@@ -55,10 +55,18 @@ export const LoginForm = () => {
 
   return (
     <>
-      <View>
-        <AppInputControlled control={control} name={"email"} />
-        <AppInputControlled control={control} name={"password"} />
-        <AppButton title={t("login")} onPress={handleSubmit(onSubmit)} />
+      <View className={"w-full"}>
+        <AppInputControlled label={"test"} control={control} name={"email"} />
+        <AppInputControlled
+          control={control}
+          name={"password"}
+          mode={"password"}
+        />
+        <AppButton
+          title={t("login")}
+          loading={loading}
+          onPress={handleSubmit(onSubmit)}
+        />
       </View>
     </>
   );

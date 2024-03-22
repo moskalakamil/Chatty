@@ -1,13 +1,11 @@
 import {createTheme, useTheme as useShopifyTheme} from "@shopify/restyle";
-import {colors as themeColors, flatColors} from "../styles/colors";
-
-export const colors = themeColors;
+import {flatColors} from "../styles/colors";
 
 /**
  * Use useTheme hook instead
  */
-export const getColors = (colorName: keyof typeof colors) => {
-  return colors[colorName];
+export const getColors = (colorName: keyof typeof flatColors) => {
+  return flatColors[colorName];
 };
 
 export const lightTheme = createTheme({
@@ -41,11 +39,11 @@ export const lightTheme = createTheme({
     btn: {
       fontFamily: "Poppins-SemiBold",
       fontSize: 16,
-      spacing: "1%",
+      letterSpacing: 1,
     },
     lbl: {
-      fontFamily: "Poppins-Medium",
-      fontSize: 16,
+      fontFamily: "Poppins-Regular",
+      fontSize: 15,
     },
     input: {
       fontFamily: "Poppins-Medium",

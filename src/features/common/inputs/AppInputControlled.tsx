@@ -21,19 +21,16 @@ export function AppInputControlled<
   return (
     <Controller
       control={control}
-      render={({field: {onChange, onBlur, value}, fieldState: {error}}) => {
-        console.log(error);
-        return (
-          <AppInput
-            onBlur={onBlur}
-            // @ts-ignore
-            onChangeText={onChange}
-            value={value}
-            error={error?.message}
-            {...inputProps}
-          />
-        );
-      }}
+      render={({field: {onChange, onBlur, value}, fieldState: {error}}) => (
+        <AppInput
+          onBlur={onBlur}
+          onChangeText={onChange}
+          value={value}
+          error={error?.message}
+          onRestartText={() => onChange("")}
+          {...inputProps}
+        />
+      )}
       name={name}
     />
   );

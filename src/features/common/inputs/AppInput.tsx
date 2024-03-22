@@ -1,5 +1,5 @@
 import {useTheme} from "@src/theme/theme";
-import React, {ReactNode} from "react";
+import React, {ReactNode, useRef, useState} from "react";
 import {
   StyleProp,
   TextInput,
@@ -7,68 +7,72 @@ import {
   View,
   Text,
   ViewStyle,
+  Pressable,
 } from "react-native";
-import {FieldError} from "@src/features/error/FieldError";
+import {FieldError} from "@src/features/common/error/FieldError";
+import {cn} from "@src/styles/cn";
+import {Icon} from "@src/assets/icons/Icon";
 
 export interface AppInputProps extends TextInputProps {
   label?: string;
   containerStyle?: StyleProp<ViewStyle>;
   error?: string;
-  rightIcon?: ReactNode;
-  leftIcon?: ReactNode;
+  mode?: "password" | "default";
+  onRestartText?: () => void;
 }
 
 export const AppInput = React.forwardRef<TextInput, AppInputProps>(
   (
-    {containerStyle, label, style, error, rightIcon, leftIcon, ...rest},
+    {
+      containerStyle,
+      label,
+      style,
+      error,
+      onRestartText,
+      mode = "default",
+      ...rest
+    },
     ref,
   ) => {
-    const {colors} = useTheme();
+    const {textVariants} = useTheme();
 
-    const isError = Boolean(error);
-
-    const borderColor = isError ? colors.danger500o5 : colors.neutral300;
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
 
     return (
-      <View
-        style={[
-          {
-            position: "relative",
-            marginTop: 16,
-            width: "100%",
-          },
-          containerStyle,
-        ]}>
-        {label && <Text style={{marginBottom: 4}}>{label}</Text>}
-        <View className={"relative justify-center"}>
+      <View className={cn("relative mb-5 w-full")} style={containerStyle}>
+        {label && (
+          <Text className={"text-white-500"} style={textVariants.lbl}>
+            {label}
+          </Text>
+        )}
+        <View className={"justify-center"}>
           <TextInput
             ref={ref}
-            style={[
-              {
-                borderRadius: 20,
-                borderWidth: 1,
-                borderColor: borderColor,
-                height: 44,
-                paddingHorizontal: 10,
-                paddingRight: !!rightIcon ? 35 : undefined,
-                paddingLeft: !!leftIcon ? 35 : undefined,
-              },
-              style,
-            ]}
+            editable={rest.editable}
+            secureTextEntry={mode === "password" && !isPasswordVisible}
+            className={cn(
+              !!error && "border-danger-500 border",
+              "h-[47px] rounded-[10px] bg-white-500 pl-2 pr-12 focus:border focus:!border-primary-500 ",
+              rest.editable === false && "bg-gray-100",
+              rest.className,
+            )}
+            style={style}
             {...rest}
           />
-          {leftIcon && (
-            <View className={"absolute pointer-events-none left-3"}>
-              {leftIcon}
-            </View>
+          {mode === "password" && (
+            <Pressable
+              className={"absolute right-5"}
+              onPress={() => setIsPasswordVisible(prev => !prev)}>
+              <Icon name={isPasswordVisible ? "vision" : "visionlow"} />
+            </Pressable>
           )}
-          {rightIcon && (
-            <View className={"absolute pointer-events-none right-3"}>
-              {rightIcon}
-            </View>
+          {mode !== "password" && (rest?.value || "").length > 0 && (
+            <Pressable className={"absolute right-5"} onPress={onRestartText}>
+              <Icon name={"close"} />
+            </Pressable>
           )}
         </View>
-        {isError && <FieldError error={error!} />}
+        {!!error && <FieldError error={error} />}
       </View>
     );
   },
