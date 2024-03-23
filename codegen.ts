@@ -1,4 +1,5 @@
 import {CodegenConfig} from "@graphql-codegen/cli";
+
 import {config as appConfig} from "./src/config";
 
 const config: CodegenConfig = {

@@ -1,6 +1,6 @@
 import {create} from "zustand";
 
-export type AppState = "LOADING"  | "NEED_AUTH" | "AUTHORIZED"
+export type AppState = "LOADING" | "NEED_AUTH" | "AUTHORIZED";
 
 interface AppStateStore {
   appState: AppState;

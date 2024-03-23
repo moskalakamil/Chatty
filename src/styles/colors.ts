@@ -1,4 +1,5 @@
 import twColors from "tailwindcss/colors";
+
 import myColors from "./exportColors";
 
 const extendedColors = myColors;

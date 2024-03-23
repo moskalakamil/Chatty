@@ -1,3 +1,5 @@
+import {Spinner} from "@src/features/_common/ui/Spinner";
+import {cn} from "@src/styles/cn";
 import {useTheme} from "@src/theme/theme";
 import {
   StyleProp,
@@ -8,8 +10,6 @@ import {
   Pressable,
   PressableProps,
 } from "react-native";
-import {Spinner} from "@src/features/_common/ui/Spinner";
-import {cn} from "@src/styles/cn";
 
 interface AppButtonProps extends PressableProps {
   title: string;

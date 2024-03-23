@@ -1,7 +1,7 @@
-import {useFonts} from "expo-font";
-import {useCallback} from "react";
-import * as SplashScreen from "expo-splash-screen";
 import AppEntry from "@src/AppEntry";
+import {useFonts} from "expo-font";
+import * as SplashScreen from "expo-splash-screen";
+import {useCallback} from "react";
 
 SplashScreen.preventAutoHideAsync();
 
@@ -13,7 +13,7 @@ export default () => {
     "Poppins-Bold": require("./src/assets/fonts/Poppins-Bold.ttf"),
   });
 
-  const onLayoutRootView = useCallback(async () => {
+  useCallback(async () => {
     if (fontsLoaded || fontError) {
       await SplashScreen.hideAsync();
     }

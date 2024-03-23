@@ -1,5 +1,6 @@
 const {getDefaultConfig} = require("expo/metro-config");
 
+/* eslint-env node */
 module.exports = (() => {
   const config = getDefaultConfig(__dirname);
 

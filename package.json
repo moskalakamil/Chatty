@@ -13,8 +13,7 @@
     "watch": "graphql-codegen -w",
     "icon:create": "./src/assets/icons/create-icon.sh && prettier --write './src/assets/icons/Icon.tsx'",
     "images:create": "./src/assets/images/create-images.sh && prettier --write 'src/assets/images/Images.ts'",
-    "prepare": "husky",
-    "commitlint": "commitlint --edit"
+    "prepare": "husky"
   },
   "dependencies": {
     "@apollo/client": "^3.9.8",

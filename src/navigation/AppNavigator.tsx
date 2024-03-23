@@ -1,15 +1,16 @@
-import React, {useEffect, useRef} from "react";
 import {
   createNavigationContainerRef,
   NavigationContainer,
 } from "@react-navigation/native";
-import {Platform} from "react-native";
-import {initApp} from "./getAppState";
+import {AuthStack} from "@src/features/auth/_navigation/AuthStack";
+import {MainStack} from "@src/features/main/_navigation/MainStack";
 import {useAppStateStore} from "@src/stores/app-state-store";
 import * as SplashScreen from "expo-splash-screen";
-import {AuthStack} from "@src/features/auth/_navigation/AuthStack";
 import {StatusBar} from "expo-status-bar";
-import {MainStack} from "@src/features/main/_navigation/MainStack";
+import React, {useEffect, useRef} from "react";
+import {Platform} from "react-native";
+
+import {initApp} from "./getAppState";
 
 export const navigationRef = createNavigationContainerRef();
 

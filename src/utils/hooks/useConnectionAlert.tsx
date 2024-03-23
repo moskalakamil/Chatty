@@ -1,7 +1,7 @@
 import {useNetInfo} from "@react-native-community/netinfo";
-import {useEffect} from "react";
 import {useT} from "@src/i18n/useTranslation";
 import {toast} from "@src/utils/toast";
+import {useEffect} from "react";
 
 export function useConnectionAlert() {
   const info = useNetInfo();

@@ -1,5 +1,5 @@
-import {Text} from "react-native";
 import {useTheme} from "@src/theme/theme";
+import {Text} from "react-native";
 
 interface HeadingTextProps {
   text: string;

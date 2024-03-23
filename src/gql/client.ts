@@ -1,6 +1,6 @@
 import {ApolloClient, createHttpLink, InMemoryCache} from "@apollo/client";
-import {config} from "@src/config";
 import {setContext} from "@apollo/client/link/context";
+import {config} from "@src/config";
 import {useAuthStore} from "@src/stores/auth-store";
 
 const httpLink = createHttpLink({
