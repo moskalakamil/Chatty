@@ -1,10 +1,9 @@
-import React from "react";
 import {RegisterForm} from "./RegisterForm";
 import {View} from "react-native";
-import HeadingText from "@src/features/auth/components/HeadingText";
+import HeadingText from "@src/features/auth/_components/HeadingText";
 import {useT} from "@src/i18n/useTranslation";
-import AuthModeToggle from "@src/features/auth/components/AuthModeToggle";
-import {Terms} from "@src/features/auth/components/Terms";
+import AuthModeToggle from "@src/features/auth/_components/AuthModeToggle";
+import {Terms} from "@src/features/auth/_components/Terms";
 
 export const RegisterScreen = () => {
   const {t} = useT();

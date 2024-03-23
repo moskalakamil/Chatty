@@ -1,33 +1,21 @@
-import React, {useEffect} from "react";
 import {useT} from "@src/i18n/useTranslation";
 import {zodResolver} from "@hookform/resolvers/zod";
 import {SubmitHandler, useForm} from "react-hook-form";
-import {z} from "zod";
-import {TFunction} from "@src/i18n/TFunction";
-import {View, Text, Pressable} from "react-native";
-import {useAuthNavigation} from "@src/features/auth/navigation/useAuthNavigation";
+import {View} from "react-native";
+import {useAuthNavigation} from "@src/features/auth/_navigation/useAuthNavigation";
 import {useLoginMutation} from "@src/queries/auth.queries";
-import {AppInputControlled} from "@src/features/common/inputs/AppInputControlled";
-import {AppButton} from "@src/features/common/buttons/AppButton";
-
-function getSchema(t: TFunction) {
-  const schema = z.object({
-    email: z
-      .string({required_error: t("error.required")})
-      .email(t("error.email")),
-    password: z
-      .string({required_error: t("error.required")})
-      .min(6, t("error.password-min", {count: 6})),
-  });
-  return schema;
-}
-
-export type LoginSchema = z.infer<ReturnType<typeof getSchema>>;
+import {AppInputControlled} from "@src/features/_common/inputs/AppInputControlled";
+import {AppButton} from "@src/features/_common/buttons/AppButton";
+import getLoginSchema, {
+  LoginSchema,
+} from "@src/features/auth/_schemas/login.schema";
+import {useAuthStore} from "@src/stores/auth-store";
+import {initApp} from "@src/navigation/getAppState";
 
 export const LoginForm = () => {
   const {t} = useT();
 
-  const schema = getSchema(t);
+  const schema = getLoginSchema(t);
 
   const nav = useAuthNavigation();
 
@@ -41,7 +29,11 @@ export const LoginForm = () => {
   });
 
   const [loginMutation, {loading}] = useLoginMutation(data => {
-    console.log("success");
+    if (!data.loginUser?.token) return;
+
+    useAuthStore.getState().setToken(data.loginUser.token);
+
+    initApp();
   });
 
   const onSubmit: SubmitHandler<LoginSchema> = ({email, password}) => {

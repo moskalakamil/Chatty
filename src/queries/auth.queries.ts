@@ -1,13 +1,25 @@
 import {useMutation} from "@apollo/client";
-import {AuthApi} from "@src/api/auth.api";
 import {toast} from "@src/utils/toast";
-import {LoginMutation} from "@src/__generated__/graphql";
+import {AuthApi} from "@src/gql/auth.gql";
+import {LoginMutation, RegisterMutation} from "@src/gql/__generated__/graphql";
+import {parseError} from "@src/utils/error/parseError";
 
 export const useLoginMutation = (onSuccess?: (data: LoginMutation) => void) => {
-  return useMutation(AuthApi.MUTATION_LOGIN, {
+  return useMutation(AuthApi.LOGIN_USER, {
     onCompleted: data => {
       onSuccess?.(data);
     },
-    onError: error => toast.error(error.message),
+    onError: error => toast.error(parseError(error).message),
+  });
+};
+
+export const useRegisterMutation = (
+  onSuccess?: (data: RegisterMutation) => void,
+) => {
+  return useMutation(AuthApi.REGISTER_USER, {
+    onCompleted: data => {
+      onSuccess?.(data);
+    },
+    onError: error => toast.error(parseError(error).message),
   });
 };

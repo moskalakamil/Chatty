@@ -1,6 +1,6 @@
 import {Pressable, Text, View} from "react-native";
 import {useTheme} from "@src/theme/theme";
-import {useAuthNavigation} from "@src/features/auth/navigation/useAuthNavigation";
+import {useAuthNavigation} from "@src/features/auth/_navigation/useAuthNavigation";
 import useKeyboard from "@src/utils/hooks/useKeyboard";
 
 interface AuthModeToggleProps {

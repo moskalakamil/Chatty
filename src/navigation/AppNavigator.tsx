@@ -7,9 +7,9 @@ import {Platform} from "react-native";
 import {initApp} from "./getAppState";
 import {useAppStateStore} from "@src/stores/app-state-store";
 import * as SplashScreen from "expo-splash-screen";
-import {MainStack} from "@src/navigation/MainStack";
-import {AuthStack} from "@src/features/auth/navigation/AuthStack";
+import {AuthStack} from "@src/features/auth/_navigation/AuthStack";
 import {StatusBar} from "expo-status-bar";
+import {MainStack} from "@src/features/main/_navigation/MainStack";
 
 export const navigationRef = createNavigationContainerRef();
 

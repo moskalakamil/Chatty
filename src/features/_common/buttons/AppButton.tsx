@@ -1,17 +1,14 @@
 import {useTheme} from "@src/theme/theme";
-import React from "react";
 import {
   StyleProp,
   TextStyle,
-  TouchableOpacity,
   View,
   ViewStyle,
   Text,
   Pressable,
   PressableProps,
 } from "react-native";
-import {Icon} from "@src/assets/icons/Icon";
-import {Spinner} from "@src/features/common/ui/Spinner";
+import {Spinner} from "@src/features/_common/ui/Spinner";
 import {cn} from "@src/styles/cn";
 
 interface AppButtonProps extends PressableProps {

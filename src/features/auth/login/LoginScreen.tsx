@@ -1,10 +1,9 @@
-import React from "react";
 import {LoginForm} from "./LoginForm";
 import {Text, View} from "react-native";
-import HeadingText from "@src/features/auth/components/HeadingText";
+import HeadingText from "@src/features/auth/_components/HeadingText";
 import {useT} from "@src/i18n/useTranslation";
 import {useTheme} from "@src/theme/theme";
-import AuthModeToggle from "@src/features/auth/components/AuthModeToggle";
+import AuthModeToggle from "@src/features/auth/_components/AuthModeToggle";
 
 export const LoginScreen = () => {
   const {t} = useT();

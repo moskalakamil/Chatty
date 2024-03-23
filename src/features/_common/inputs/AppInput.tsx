@@ -9,7 +9,7 @@ import {
   ViewStyle,
   Pressable,
 } from "react-native";
-import {FieldError} from "@src/features/common/error/FieldError";
+import {FieldError} from "@src/features/_common/error/FieldError";
 import {cn} from "@src/styles/cn";
 import {Icon} from "@src/assets/icons/Icon";
 

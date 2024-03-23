@@ -3,7 +3,9 @@
     "required": "This field is required",
     "password-min": "Password must be at least {{count}} characters long",
     "email": "Invalid email",
-    "passwordsDoNotMatch": "Passwords do not match"
+    "passwordsDoNotMatch": "Passwords do not match",
+    "unknownError": "Unknown error",
+    "invalidData": "Invalid data"
   },
   "fontsLoadingError": "Fonts loading error. Please restart the application",
   "english": "English",
@@ -16,6 +18,7 @@
     "welcomeBack": "Welcome back",
     "loginSubtitle": "Log in and stay in touch with everyone!",
     "createAccount": "Create account",
+    "accountCreatedSuccessfully": "Account created successfully. Please log in",
     "email": "e-mail address",
     "password": "password",
     "firstName": "first name",
