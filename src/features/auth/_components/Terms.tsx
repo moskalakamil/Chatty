@@ -1,9 +1,9 @@
-import {Trans} from "react-i18next";
-import {Alert, Linking, Pressable, Text} from "react-native";
 import {useT} from "@src/i18n/useTranslation";
 import {useTheme} from "@src/theme/theme";
-import {useCallback} from "react";
 import useKeyboard from "@src/utils/hooks/useKeyboard";
+import {useCallback} from "react";
+import {Trans} from "react-i18next";
+import {Alert, Linking, Pressable, Text} from "react-native";
 
 export const Terms = () => {
   const {t} = useT();

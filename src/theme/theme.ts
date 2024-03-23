@@ -1,4 +1,5 @@
 import {createTheme, useTheme as useShopifyTheme} from "@shopify/restyle";
+
 import {flatColors} from "../styles/colors";
 
 /**

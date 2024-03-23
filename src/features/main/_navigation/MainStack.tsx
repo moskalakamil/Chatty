@@ -2,8 +2,8 @@ import {
   NativeStackNavigationOptions,
   createNativeStackNavigator,
 } from "@react-navigation/native-stack";
-import {getColors} from "@src/theme/theme";
 import {ChatList} from "@src/features/main/chatList/ChatList";
+import {getColors} from "@src/theme/theme";
 
 export type MainStackNavParamList = {
   ChatList: undefined;

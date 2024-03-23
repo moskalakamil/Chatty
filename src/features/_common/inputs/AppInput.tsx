@@ -1,5 +1,8 @@
+import {Icon} from "@src/assets/icons/Icon";
+import {FieldError} from "@src/features/_common/error/FieldError";
+import {cn} from "@src/styles/cn";
 import {useTheme} from "@src/theme/theme";
-import React, {ReactNode, useRef, useState} from "react";
+import React, {useState} from "react";
 import {
   StyleProp,
   TextInput,
@@ -9,9 +12,6 @@ import {
   ViewStyle,
   Pressable,
 } from "react-native";
-import {FieldError} from "@src/features/_common/error/FieldError";
-import {cn} from "@src/styles/cn";
-import {Icon} from "@src/assets/icons/Icon";
 
 export interface AppInputProps extends TextInputProps {
   label?: string;

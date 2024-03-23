@@ -1,15 +1,15 @@
-import {useT} from "@src/i18n/useTranslation";
 import {zodResolver} from "@hookform/resolvers/zod";
-import {SubmitHandler, useForm} from "react-hook-form";
-import {useAuthNavigation} from "@src/features/auth/_navigation/useAuthNavigation";
-import {View} from "react-native";
-import {AppInputControlled} from "@src/features/_common/inputs/AppInputControlled";
 import {AppButton} from "@src/features/_common/buttons/AppButton";
-import {useRegisterMutation} from "@src/queries/auth.queries";
-import {toast} from "@src/utils/toast";
+import {AppInputControlled} from "@src/features/_common/inputs/AppInputControlled";
+import {useAuthNavigation} from "@src/features/auth/_navigation/useAuthNavigation";
 import getRegisterSchema, {
   RegisterSchema,
 } from "@src/features/auth/_schemas/register.schema";
+import {useT} from "@src/i18n/useTranslation";
+import {useRegisterMutation} from "@src/queries/auth.queries";
+import {toast} from "@src/utils/toast";
+import {SubmitHandler, useForm} from "react-hook-form";
+import {View} from "react-native";
 
 export const RegisterForm = () => {
   const {t} = useT();

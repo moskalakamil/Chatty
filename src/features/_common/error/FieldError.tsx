@@ -1,5 +1,5 @@
-import {View, Text} from "react-native";
 import {useTheme} from "@src/theme/theme";
+import {View, Text} from "react-native";
 
 interface FieldErrorProps {
   error: string;

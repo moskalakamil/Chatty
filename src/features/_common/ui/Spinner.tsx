@@ -1,5 +1,5 @@
-import React from 'react';
-import {ActivityIndicator, ActivityIndicatorProps} from 'react-native';
+import React from "react";
+import {ActivityIndicator, ActivityIndicatorProps} from "react-native";
 
 interface SpinnerProps extends ActivityIndicatorProps {}
 

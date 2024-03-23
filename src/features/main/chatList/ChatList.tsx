@@ -1,6 +1,6 @@
 import {AppButton} from "@src/features/_common/buttons/AppButton";
-import {useAuthStore} from "@src/stores/auth-store";
 import {useAppStateStore} from "@src/stores/app-state-store";
+import {useAuthStore} from "@src/stores/auth-store";
 
 export const ChatList = () => {
   const tmpLogout = () => {

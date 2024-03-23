@@ -18,6 +18,7 @@ export const parseError = (e: unknown) => {
       const {message} = e.graphQLErrors[0]!;
       errMsg = parseErrorMessage(message);
 
+      // eslint-disable-next-line
       if (e.graphQLErrors[0]!.hasOwnProperty("errors")) {
         //@ts-ignore
         const {errors} = e.graphQLErrors[0];

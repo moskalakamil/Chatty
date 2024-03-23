@@ -8,10 +8,12 @@
     "ios": "expo start --ios",
     "web": "expo start --web",
     "tsc": "tsc --noEmit",
+    "lint": "eslint .",
     "compile": "graphql-codegen",
     "watch": "graphql-codegen -w",
     "icon:create": "./src/assets/icons/create-icon.sh && prettier --write './src/assets/icons/Icon.tsx'",
-    "images:create": "./src/assets/images/create-images.sh && prettier --write 'src/assets/images/Images.ts'"
+    "images:create": "./src/assets/images/create-images.sh && prettier --write 'src/assets/images/Images.ts'",
+    "prepare": "husky"
   },
   "dependencies": {
     "@apollo/client": "^3.9.8",
@@ -46,6 +48,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.20.0",
+    "@commitlint/config-conventional": "^19.1.0",
     "@graphql-codegen/cli": "^5.0.2",
     "@graphql-codegen/client-preset": "^4.2.4",
     "@graphql-typed-document-node/core": "^3.2.0",
@@ -55,6 +58,7 @@
     "babel-plugin-module-resolver": "^5.0.0",
     "eslint": "^8.57.0",
     "eslint-config-universe": "^12.0.0",
+    "husky": "^9.0.11",
     "prettier": "^3.2.5",
     "react-native-svg-transformer": "^1.3.0",
     "tailwindcss": "3.3.2",

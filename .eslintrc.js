@@ -3,5 +3,5 @@ module.exports = {
   rules: {
     quotes: [2, "double"],
   },
-  extends: ["@react-native-community", "eslint:recommended"],
+  extends: ["universe", "eslint:recommended"],
 };

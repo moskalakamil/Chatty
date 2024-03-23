@@ -1,18 +1,17 @@
-import {Platform, KeyboardAvoidingView} from "react-native";
 import "@src/i18n/i18n";
-import {SafeAreaProvider} from "react-native-safe-area-context";
-import {AppNavigator} from "./navigation/AppNavigator";
-import {ThemeProvider} from "./theme/ThemeProvider";
-import Toast from "react-native-toast-message";
-import {GestureHandlerRootView} from "react-native-gesture-handler";
-import {useConnectionAlert} from "@src/utils/hooks/useConnectionAlert";
-import {toastConfig} from "@src/utils/toast";
 import {ApolloProvider} from "@apollo/client";
 import {client} from "@src/gql/client";
-import AsyncStorage from "@react-native-async-storage/async-storage";
+import {useConnectionAlert} from "@src/utils/hooks/useConnectionAlert";
+import {toastConfig} from "@src/utils/toast";
+import {Platform, KeyboardAvoidingView} from "react-native";
+import {GestureHandlerRootView} from "react-native-gesture-handler";
+import {SafeAreaProvider} from "react-native-safe-area-context";
+import Toast from "react-native-toast-message";
+
+import {AppNavigator} from "./navigation/AppNavigator";
+import {ThemeProvider} from "./theme/ThemeProvider";
 
 const AppEntry = () => {
-  AsyncStorage.clear();
   useConnectionAlert();
   return (
     <ApolloProvider client={client}>

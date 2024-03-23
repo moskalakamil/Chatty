@@ -1,8 +1,8 @@
 import {useMutation} from "@apollo/client";
-import {toast} from "@src/utils/toast";
-import {AuthApi} from "@src/gql/auth.gql";
 import {LoginMutation, RegisterMutation} from "@src/gql/__generated__/graphql";
+import {AuthApi} from "@src/gql/auth.gql";
 import {parseError} from "@src/utils/error/parseError";
+import {toast} from "@src/utils/toast";
 
 export const useLoginMutation = (onSuccess?: (data: LoginMutation) => void) => {
   return useMutation(AuthApi.LOGIN_USER, {
