@@ -1,4 +1,6 @@
-const {extendedColors} = require("./src/styles/colors");
+const colors = require("./src/styles/exportColors");
+
+/** @type {import('tailwindcss').Config}*/
 const config = {
   content: ["./src/**/*.{js,ts,jsx,tsx,mdx}"],
   theme: {
@@ -6,8 +8,8 @@ const config = {
       fontFamily: {
         poppins: "Poppins",
       },
-      colors: extendedColors,
     },
+    colors,
   },
   plugins: [],
 };

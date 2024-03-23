@@ -1,4 +1,3 @@
-import React from "react";
 import {ThemeProvider as ShopifyThemeProvider} from "@shopify/restyle";
 import {lightTheme} from "./theme";
 

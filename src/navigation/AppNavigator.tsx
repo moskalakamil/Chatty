@@ -3,12 +3,13 @@ import {
   createNavigationContainerRef,
   NavigationContainer,
 } from "@react-navigation/native";
-import {Platform, StatusBar} from "react-native";
+import {Platform} from "react-native";
 import {initApp} from "./getAppState";
 import {useAppStateStore} from "@src/stores/app-state-store";
-import {hideAsync} from 'expo-splash-screen';
-import {MainStack} from "@src/navigation/MainStack";
-import {Icon} from "@src/assets/icons/Icon";
+import * as SplashScreen from "expo-splash-screen";
+import {AuthStack} from "@src/features/auth/_navigation/AuthStack";
+import {StatusBar} from "expo-status-bar";
+import {MainStack} from "@src/features/main/_navigation/MainStack";
 
 export const navigationRef = createNavigationContainerRef();
 
@@ -18,7 +19,7 @@ export const AppNavigator = () => {
 
   useEffect(() => {
     initApp().then(() => {
-        hideAsync();
+      SplashScreen.hideAsync();
     });
   }, []);
 
@@ -29,10 +30,8 @@ export const AppNavigator = () => {
         routeNameRef.current =
           navigationRef.current?.getCurrentRoute()?.name || null;
       }}>
-      <StatusBar
-        barStyle={Platform.OS === "ios" ? "dark-content" : "light-content"}
-      />
-      {appState === "NEED_AUTH" && <Icon name={"plus"} />}
+      <StatusBar style={Platform.OS === "ios" ? "dark" : "light"} />
+      {appState === "NEED_AUTH" && <AuthStack />}
       {appState === "AUTHORIZED" && <MainStack />}
     </NavigationContainer>
   );
