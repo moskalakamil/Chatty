@@ -7,7 +7,7 @@ import getLoginSchema, {
 import {useT} from "@src/i18n/useTranslation";
 import {initApp} from "@src/navigation/getAppState";
 import {useLoginMutation} from "@src/queries/auth.queries";
-import {useAuthStore} from "@src/stores/auth-store";
+import {useAuthStore} from "@src/stores/auth.store";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {View} from "react-native";
 
@@ -25,7 +25,7 @@ export const LoginForm = () => {
     resolver: zodResolver(schema),
   });
 
-  const [loginMutation, {loading}] = useLoginMutation(data => {
+  const [loginMutation, {loading}] = useLoginMutation(async data => {
     if (!data.loginUser?.token) return;
 
     useAuthStore.getState().setToken(data.loginUser.token);
@@ -36,8 +36,8 @@ export const LoginForm = () => {
   const onSubmit: SubmitHandler<LoginSchema> = ({email, password}) => {
     loginMutation({
       variables: {
-        email,
-        password,
+        email: email.trim(),
+        password: password.trim(),
       },
     });
   };

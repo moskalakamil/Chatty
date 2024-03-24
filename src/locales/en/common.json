@@ -7,11 +7,6 @@
     "unknownError": "Unknown error",
     "invalidData": "Invalid data"
   },
-  "fontsLoadingError": "Fonts loading error. Please restart the application",
-  "english": "English",
-  "noInternetConnection": "No internet connection",
-  "languages": "Languages",
-  "failedToOpenLink": "Failed to open link",
   "auth": {
     "login": "Log in",
     "signUp": "Sign up",
@@ -27,5 +22,14 @@
     "terms": "By signing up you agree with <Terms><Text>Terms and Conditions</Text></Terms> and <Privacy><Text>Privacy Policy</Text></Privacy>",
     "alreadyHaveAccount": "Already have an account?",
     "dontHaveAccount": "Don’t have an account?"
-  }
+  },
+  "chat": {
+    "rooms": "Rooms",
+    "roomNotFound": "Room not found"
+  },
+  "fontsLoadingError": "Fonts loading error. Please restart the application",
+  "english": "English",
+  "noInternetConnection": "No internet connection",
+  "languages": "Languages",
+  "failedToOpenLink": "Failed to open link"
 }

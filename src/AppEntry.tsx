@@ -3,7 +3,7 @@ import {ApolloProvider} from "@apollo/client";
 import {client} from "@src/gql/client";
 import {useConnectionAlert} from "@src/utils/hooks/useConnectionAlert";
 import {toastConfig} from "@src/utils/toast";
-import {Platform, KeyboardAvoidingView} from "react-native";
+import {KeyboardAvoidingView} from "react-native";
 import {GestureHandlerRootView} from "react-native-gesture-handler";
 import {SafeAreaProvider} from "react-native-safe-area-context";
 import Toast from "react-native-toast-message";
@@ -17,9 +17,7 @@ const AppEntry = () => {
     <ApolloProvider client={client}>
       <GestureHandlerRootView style={{flex: 1, width: "100%"}}>
         <SafeAreaProvider>
-          <KeyboardAvoidingView
-            style={{flex: 1}}
-            behavior={Platform.OS === "ios" ? "padding" : undefined}>
+          <KeyboardAvoidingView style={{flex: 1}}>
             <ThemeProvider>
               <AppNavigator />
               <Toast config={toastConfig} />

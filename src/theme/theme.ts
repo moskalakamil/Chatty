@@ -9,6 +9,16 @@ export const getColors = (colorName: keyof typeof flatColors) => {
   return flatColors[colorName];
 };
 
+export const getBorderRadius = (size: keyof typeof lightTheme.borderRadii) => {
+  return lightTheme.borderRadii[size];
+};
+
+export const getTextVariant = (
+  variant: keyof typeof lightTheme.textVariants,
+) => {
+  return lightTheme.textVariants[variant];
+};
+
 export const lightTheme = createTheme({
   colors: flatColors,
   borderRadii: {
@@ -30,12 +40,14 @@ export const lightTheme = createTheme({
       fontSize: 22,
     },
     h3: {
-      fontFamily: "Poppins-Bold",
-      fontSize: 22,
+      fontFamily: "Poppins-Medium",
+      fontSize: 15,
+      lineHeight: 20,
     },
     h4: {
       fontFamily: "Poppins-SemiBold",
-      fontSize: 16,
+      fontSize: 14,
+      lineHeight: 20,
     },
     btn: {
       fontFamily: "Poppins-SemiBold",
@@ -53,8 +65,8 @@ export const lightTheme = createTheme({
     },
     caption: {
       fontFamily: "Poppins-Regular",
-      fontSize: 11,
-      lineHeight: 13,
+      fontSize: 13,
+      lineHeight: 15,
     },
     body: {
       fontFamily: "Poppins-Regular",

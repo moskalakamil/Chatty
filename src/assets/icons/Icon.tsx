@@ -2,6 +2,7 @@ import React from "react";
 import {SvgProps} from "react-native-svg";
 
 import close from "./Svg/close.svg";
+import goback from "./Svg/go-back.svg";
 import phone from "./Svg/phone.svg";
 import plus from "./Svg/plus.svg";
 import profile from "./Svg/profile.svg";
@@ -23,6 +24,7 @@ const ICONS = {
   rooms,
   phone,
   profile,
+  goback,
 };
 
 export type IconType = keyof typeof ICONS;

@@ -2,8 +2,6 @@ import {useNavigation} from "@react-navigation/native";
 import {NativeStackNavigationProp} from "@react-navigation/native-stack";
 import {AuthStackNavParamList} from "@src/features/auth/_navigation/AuthStack";
 
-export function useAuthNavigation() {
-  const navigation =
-    useNavigation<NativeStackNavigationProp<AuthStackNavParamList>>();
-  return navigation;
-}
+export const useAuthNavigation = useNavigation<
+  NativeStackNavigationProp<AuthStackNavParamList>
+>;
