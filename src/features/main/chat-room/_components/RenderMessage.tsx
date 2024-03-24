@@ -22,6 +22,17 @@ export const RenderMessage = (props: {
   const isLastMessageInSeries =
     props.nextMessage?.user?._id !== props.currentMessage?.user?._id;
 
+  const bubbleClassName = cn(
+    "rounded-xl p-3 w-full",
+    isMyMessage
+      ? "bg-primary-300 text-white-500"
+      : "bg-white-500 text-black-500",
+    isLastMessageInSeries && isMyMessage && "mr-[6] rounded-br-none",
+    isLastMessageInSeries && !isMyMessage && "ml-[6] rounded-bl-none",
+    !isLastMessageInSeries && isMyMessage && "mr-[30]",
+    !isLastMessageInSeries && !isMyMessage && "ml-[30]",
+  );
+
   return (
     <View
       className={cn(
@@ -35,22 +46,10 @@ export const RenderMessage = (props: {
           source={images.defaultProfile}
         />
       )}
-      <View
-        className={cn(
-          "rounded-xl p-3 w-full",
-          isMyMessage && "bg-primary-300 text-white-500",
-          !isMyMessage && "bg-white-500 text-black-500",
-          isLastMessageInSeries && isMyMessage && "mr-[6] rounded-br-none",
-          isLastMessageInSeries && !isMyMessage && "ml-[6] rounded-bl-none",
-          !isLastMessageInSeries && isMyMessage && "mr-[30]",
-          !isLastMessageInSeries && !isMyMessage && "ml-[30]",
-        )}>
+      <View className={bubbleClassName}>
         <Text
           style={bodyVariant}
-          className={cn(
-            isMyMessage && "text-white-500",
-            !isMyMessage && "text-black-500",
-          )}>
+          className={cn(isMyMessage ? "text-white-500" : "text-black-500")}>
           {props.currentMessage?.text}
         </Text>
       </View>

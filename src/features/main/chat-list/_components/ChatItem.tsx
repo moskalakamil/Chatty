@@ -69,13 +69,12 @@ export const ChatItem = ({room}: ChatItemProps) => {
         </Text>
       </View>
       <View className={"absolute top-3 right-3"}>
-        {!isNewMessages && (
+        {isNewMessages ? (
+          <View className={cn("w-4 h-4 rounded-full bg-active-500")} />
+        ) : (
           <Text style={textVariants.caption} className={"text-gray-500"}>
             {room?.lastActivity}
           </Text>
-        )}
-        {isNewMessages && (
-          <View className={cn("w-4 h-4 rounded-full bg-active-500")} />
         )}
       </View>
     </Pressable>

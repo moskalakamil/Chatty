@@ -29,7 +29,7 @@ export const ChatRoomScreen = ({
 
   if (loading)
     return (
-      <View className={"flex-1"}>
+      <View className={"flex-1 pt-10"}>
         <Spinner size={40} />
       </View>
     );

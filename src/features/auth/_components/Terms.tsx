@@ -8,7 +8,7 @@ import {Alert, Linking, Pressable, Text} from "react-native";
 export const Terms = () => {
   const {t} = useT();
   const {textVariants} = useTheme();
-  const {keyBoardOpen} = useKeyboard();
+  const {keyboardOpen} = useKeyboard();
 
   const handlePress = useCallback(
     async (url: string) => {
@@ -23,7 +23,7 @@ export const Terms = () => {
     [t],
   );
 
-  return keyBoardOpen ? null : (
+  return keyboardOpen ? null : (
     <Text
       style={textVariants.body}
       className={

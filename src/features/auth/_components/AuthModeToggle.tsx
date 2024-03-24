@@ -11,9 +11,9 @@ interface AuthModeToggleProps {
 const AuthModeToggle = ({text: [part1, part2], mode}: AuthModeToggleProps) => {
   const {textVariants} = useTheme();
   const nav = useAuthNavigation();
-  const {keyBoardOpen} = useKeyboard();
+  const {keyboardOpen} = useKeyboard();
 
-  return keyBoardOpen ? null : (
+  return keyboardOpen ? null : (
     <View className={"flex-row items-center gap-3 justify-center"}>
       <Text style={textVariants.body} className={"text-white-500"}>
         {part1}
