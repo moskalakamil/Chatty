@@ -9,7 +9,7 @@
     "splash": {
       "image": "./src/assets/expo/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#B6DEFD"
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
