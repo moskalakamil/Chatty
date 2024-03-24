@@ -1,13 +1,11 @@
 import {Icon} from "@src/assets/icons/Icon";
 import {images} from "@src/assets/images/Images";
 import {AppImage} from "@src/features/_common/image/AppImage";
-import {Spinner} from "@src/features/_common/ui/Spinner";
 import {MainHeaderContainer} from "@src/features/main/_components/MainHeaderContainer";
 import {useMainNavigation} from "@src/features/main/_navigation/useMainNavigation";
 import {useGetHeaderRoom} from "@src/queries/chat.queries";
 import {useUserStore} from "@src/stores/user.store";
 import {useTheme} from "@src/theme/theme";
-import {parseError} from "@src/utils/error/parseError";
 import {Pressable, Text, View} from "react-native";
 
 interface ChatRoomHeaderProps {
@@ -19,22 +17,13 @@ export const ChatRoomHeader = (props: ChatRoomHeaderProps) => {
 
   const {textVariants} = useTheme();
 
-  const {data, loading, error} = useGetHeaderRoom(props.roomId);
+  const {data} = useGetHeaderRoom(props.roomId);
 
   const {user} = useUserStore();
 
   const extractedUser = data?.room?.messages?.filter(
     m => m?.user?.id !== user?.id,
   )?.[0]?.user;
-
-  if (error)
-    return (
-      <View className={"flex-1 items-center mt-14"}>
-        <Text className={"text-xl"}>{parseError(error).message}</Text>
-      </View>
-    );
-
-  if (loading) return <Spinner />;
 
   return (
     <MainHeaderContainer>

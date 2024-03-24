@@ -27,7 +27,12 @@ export const ChatRoomScreen = ({
       </View>
     );
 
-  if (loading) return <Spinner />;
+  if (loading)
+    return (
+      <View className={"flex-1"}>
+        <Spinner size={40} />
+      </View>
+    );
 
   return (
     <View className={"mt-10 flex-1"}>

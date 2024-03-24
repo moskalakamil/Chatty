@@ -84,4 +84,16 @@ export namespace ChatApi {
       }
     }
   `);
+
+  export const MESSAGE_ADDED = gql(/* GraphQL */ `
+    subscription MessageAdded($roomId: String!) {
+      messageAdded(roomId: $roomId) {
+        id
+        body
+        user {
+          id
+        }
+      }
+    }
+  `);
 }

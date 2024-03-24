@@ -5,6 +5,7 @@ import {
   useQuery,
   useSubscription,
 } from "@apollo/client";
+import {SendMessageMutation} from "@src/gql/__generated__/graphql";
 import {ChatApi} from "@src/gql/chat.gql";
 import {parseError} from "@src/utils/error/parseError";
 import {toast} from "@src/utils/toast";
@@ -36,11 +37,14 @@ export const useGetHeaderRoom = (id: string, onSuccess?: () => void) => {
 };
 
 export const useSendMessage = ({
+  onSuccess,
   onError,
 }: {
+  onSuccess?: (data: SendMessageMutation) => void;
   onError?: (error: ApolloError, variables?: OperationVariables) => void;
 }) => {
   return useMutation(ChatApi.SEND_MESSAGE, {
+    onCompleted: data => onSuccess?.(data),
     onError: (error, clientOptions) => {
       toast.error(parseError(error).message);
       onError?.(error, clientOptions?.variables);
@@ -58,6 +62,17 @@ export const useSetTypingUser = () => {
 
 export const useGetTypingUser = (id: string) => {
   return useSubscription(ChatApi.GET_TYPING_USER, {
+    variables: {
+      roomId: id,
+    },
+    onError: error => {
+      toast.error(parseError(error).message);
+    },
+  });
+};
+
+export const useMessageAdded = (id: string) => {
+  return useSubscription(ChatApi.MESSAGE_ADDED, {
     variables: {
       roomId: id,
     },

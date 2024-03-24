@@ -12,9 +12,8 @@ export const ChatListScreen = () => {
 
   const filledData = useMemo(
     () =>
-      data?.usersRooms?.rooms?.map((item, index) => ({
+      data?.usersRooms?.rooms?.map(item => ({
         ...item,
-        isActive: index === 0,
         lastMessage: "last message",
         lastActivity: "5 m ago",
         imageUri: null,
@@ -28,7 +27,7 @@ export const ChatListScreen = () => {
         <Text className={"text-xl"}>{parseError(error).message}</Text>
         <AppButton
           title={"logout"}
-          className={"mt-10 w-[80%]"}
+          className={"mt-10 w-[80%] !bg-danger-500"}
           onPress={logoutUser}
         />
       </View>
@@ -37,13 +36,17 @@ export const ChatListScreen = () => {
   if (loading) return <Spinner />;
 
   return (
-    <View className={"mt-10"}>
+    <View className={"mt-10 flex-1"}>
       <FlatList
         data={filledData}
         keyExtractor={(item, index) => item?.id || index.toString()}
         renderItem={({item}) => <ChatItem room={item} />}
       />
-      <AppButton title={"logout"} className={"mt-10"} onPress={logoutUser} />
+      <AppButton
+        title={"logout"}
+        className={"!bg-danger-500 absolute bottom-10"}
+        onPress={logoutUser}
+      />
     </View>
   );
 };

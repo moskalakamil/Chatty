@@ -21,6 +21,7 @@ const documents = {
     "\n    mutation SendMessage($body: String!, $roomId: String!) {\n      sendMessage(body: $body, roomId: $roomId) {\n        id\n        body\n        insertedAt\n        user {\n          id\n          firstName\n        }\n      }\n    }\n  ": types.SendMessageDocument,
     "\n    mutation TypingUserMutation($roomId: String!) {\n      typingUser(roomId: $roomId) {\n        id\n      }\n    }\n  ": types.TypingUserMutationDocument,
     "\n    subscription TypingUserSubscription($roomId: String!) {\n      typingUser(roomId: $roomId) {\n        id\n        firstName\n      }\n    }\n  ": types.TypingUserSubscriptionDocument,
+    "\n    subscription MessageAdded($roomId: String!) {\n      messageAdded(roomId: $roomId) {\n        id\n        body\n        user {\n          id\n        }\n      }\n    }\n  ": types.MessageAddedDocument,
     "\n    query user {\n      user {\n        id\n        firstName\n      }\n    }\n  ": types.UserDocument,
 };
 
@@ -70,6 +71,10 @@ export function gql(source: "\n    mutation TypingUserMutation($roomId: String!)
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
 export function gql(source: "\n    subscription TypingUserSubscription($roomId: String!) {\n      typingUser(roomId: $roomId) {\n        id\n        firstName\n      }\n    }\n  "): (typeof documents)["\n    subscription TypingUserSubscription($roomId: String!) {\n      typingUser(roomId: $roomId) {\n        id\n        firstName\n      }\n    }\n  "];
+/**
+ * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
+ */
+export function gql(source: "\n    subscription MessageAdded($roomId: String!) {\n      messageAdded(roomId: $roomId) {\n        id\n        body\n        user {\n          id\n        }\n      }\n    }\n  "): (typeof documents)["\n    subscription MessageAdded($roomId: String!) {\n      messageAdded(roomId: $roomId) {\n        id\n        body\n        user {\n          id\n        }\n      }\n    }\n  "];
 /**
  * The gql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */

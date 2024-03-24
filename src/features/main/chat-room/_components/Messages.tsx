@@ -6,6 +6,7 @@ import {
   RoomQuery,
   TypingUserSubscriptionSubscription,
 } from "@src/gql/__generated__/graphql";
+import {ChatApi} from "@src/gql/chat.gql";
 import {useSendMessage} from "@src/queries/chat.queries";
 import {useUserStore} from "@src/stores/user.store";
 import {parseError} from "@src/utils/error/parseError";
@@ -76,6 +77,12 @@ export function Messages({roomData, typingUser, onTyping}: MessageProps) {
           body,
           roomId: roomData?.id!,
         },
+        refetchQueries: [
+          {
+            query: ChatApi.GET_ROOM,
+            variables: {id: roomData.id},
+          },
+        ],
       });
 
       setMessages(previousMessages => GiftedChat.append(previousMessages, msg));
