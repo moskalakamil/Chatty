@@ -5,10 +5,10 @@ import {logoutUser} from "@src/navigation/getAppState";
 import {useGetRooms} from "@src/queries/chat.queries";
 import {parseError} from "@src/utils/error/parseError";
 import {useMemo} from "react";
-import {FlatList, Text, View} from "react-native";
+import {FlatList, RefreshControl, Text, View} from "react-native";
 
 export const ChatListScreen = () => {
-  const {data, loading, error} = useGetRooms();
+  const {data, loading, error, refetch} = useGetRooms();
 
   const filledData = useMemo(
     () =>
@@ -35,7 +35,7 @@ export const ChatListScreen = () => {
 
   if (loading)
     return (
-      <View className={"flex-1 pt-10"}>
+      <View className={"flex-1 pt-14"}>
         <Spinner size={40} />
       </View>
     );
@@ -44,6 +44,9 @@ export const ChatListScreen = () => {
     <View className={"mt-10 flex-1"}>
       <FlatList
         data={filledData}
+        refreshControl={
+          <RefreshControl refreshing={loading} onRefresh={refetch} />
+        }
         keyExtractor={(item, index) => item?.id || index.toString()}
         renderItem={({item}) => <ChatItem room={item} />}
       />
