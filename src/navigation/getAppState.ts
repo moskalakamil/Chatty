@@ -1,7 +1,7 @@
 import {client} from "@src/gql/client";
 import {UserApi} from "@src/gql/user.gql";
-import {AppState, useAppStateStore} from "@src/stores/app-state-store";
-import {useAuthStore} from "@src/stores/auth-store";
+import {AppState, useAppStateStore} from "@src/stores/app-state.store";
+import {useAuthStore} from "@src/stores/auth.store";
 import {User, useUserStore} from "@src/stores/user.store";
 import {parseError} from "@src/utils/error/parseError";
 import {toast} from "@src/utils/toast";

@@ -4,7 +4,7 @@ import {
 } from "@react-navigation/native";
 import {AuthStack} from "@src/features/auth/_navigation/AuthStack";
 import {MainStack} from "@src/features/main/_navigation/MainStack";
-import {useAppStateStore} from "@src/stores/app-state-store";
+import {useAppStateStore} from "@src/stores/app-state.store";
 import * as SplashScreen from "expo-splash-screen";
 import {StatusBar} from "expo-status-bar";
 import React, {useEffect, useRef} from "react";

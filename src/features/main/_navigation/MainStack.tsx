@@ -6,7 +6,7 @@ import {ChatListScreen} from "@src/features/main/chat-list/ChatListScreen";
 import {ChatListHeader} from "@src/features/main/chat-list/_components/ChatListHeader";
 import {ChatRoomScreen} from "@src/features/main/chat-room/ChatRoomScreen";
 import {ChatRoomHeader} from "@src/features/main/chat-room/_components/ChatRoomHeader";
-import {useAuthStore} from "@src/stores/auth-store";
+import {useAuthStore} from "@src/stores/auth.store";
 import {getColors} from "@src/theme/theme";
 
 export type MainStackNavParamList = {

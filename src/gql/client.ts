@@ -10,7 +10,7 @@ import {
 import {setContext} from "@apollo/client/link/context";
 import {getMainDefinition} from "@apollo/client/utilities";
 import {config} from "@src/config";
-import {useAuthStore} from "@src/stores/auth-store";
+import {useAuthStore} from "@src/stores/auth.store";
 import {Socket as PhoenixSocket} from "phoenix";
 
 const httpLink = createHttpLink({

@@ -7,7 +7,7 @@ import getLoginSchema, {
 import {useT} from "@src/i18n/useTranslation";
 import {initApp} from "@src/navigation/getAppState";
 import {useLoginMutation} from "@src/queries/auth.queries";
-import {useAuthStore} from "@src/stores/auth-store";
+import {useAuthStore} from "@src/stores/auth.store";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {View} from "react-native";
 
