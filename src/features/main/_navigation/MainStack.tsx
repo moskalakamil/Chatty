@@ -15,13 +15,13 @@ export type MainStackNavParamList = {
 };
 
 const screenOptions: NativeStackNavigationOptions = {
-  // headerShown: false,
   contentStyle: {
     backgroundColor: getColors("secondary100"),
   },
 };
 
 const Stack = createNativeStackNavigator<MainStackNavParamList>();
+
 export const MainStack = () => {
   const {token} = useAuthStore();
 

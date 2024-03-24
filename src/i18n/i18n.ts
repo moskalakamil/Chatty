@@ -1,4 +1,3 @@
-// src/localization/i18n.ts
 import commonEn from "@src/locales/en/common.json";
 import i18n from "i18next";
 import {initReactI18next} from "react-i18next";

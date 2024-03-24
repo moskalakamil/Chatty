@@ -35,6 +35,12 @@ export const RenderMessage = (props: {
 
   return (
     <View
+      style={
+        !props.nextMessage ||
+        (props.nextMessage && !Object.keys(props.nextMessage).length)
+          ? {marginBottom: 20}
+          : {}
+      }
       className={cn(
         "flex-row  w-4/6 my-1.5 rounded-lg items-end",
         isMyMessage && "self-end flex-row-reverse",

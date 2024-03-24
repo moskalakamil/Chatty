@@ -35,7 +35,7 @@ export const ChatRoomScreen = ({
     );
 
   return (
-    <View className={"mt-10 flex-1"}>
+    <View className={"flex-1"}>
       {data?.room?.messages && (
         <Messages
           roomData={data?.room}

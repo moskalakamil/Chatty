@@ -30,7 +30,7 @@ export const ChatItem = ({room}: ChatItemProps) => {
   const isNewMessages =
     data?.messageAdded && data.messageAdded.user?.id !== user?.id;
 
-  // // for testing - new message is shown even if it's our message
+  // // for testing - new message is shown even if it's your message
   // const isNewMessages = !!data?.messageAdded;
 
   const {borderRadii, textVariants} = useTheme();

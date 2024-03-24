@@ -3,7 +3,7 @@ import {useTheme} from "@src/theme/theme";
 import useKeyboard from "@src/utils/hooks/useKeyboard";
 import {useCallback} from "react";
 import {Trans} from "react-i18next";
-import {Alert, Linking, Pressable, Text} from "react-native";
+import {Alert, Linking, Platform, Pressable, Text} from "react-native";
 
 export const Terms = () => {
   const {t} = useT();
@@ -23,7 +23,9 @@ export const Terms = () => {
     [t],
   );
 
-  return keyboardOpen ? null : (
+  if (keyboardOpen) return null;
+
+  return (
     <Text
       style={textVariants.body}
       className={
@@ -45,7 +47,10 @@ export const Terms = () => {
           ),
           Text: (
             <Text
-              style={textVariants.body}
+              style={[
+                textVariants.body,
+                {marginBottom: Platform.OS === "android" ? -8.5 : -2},
+              ]}
               className={"-mb-[8.5px] underline text-secondary-500"}
             />
           ),

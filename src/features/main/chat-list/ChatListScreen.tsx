@@ -47,11 +47,11 @@ export const ChatListScreen = () => {
         keyExtractor={(item, index) => item?.id || index.toString()}
         renderItem={({item}) => <ChatItem room={item} />}
       />
-      <AppButton
-        title={"logout"}
-        className={"!bg-danger-500 absolute bottom-10"}
-        onPress={logoutUser}
-      />
+      {/*<AppButton*/}
+      {/*  title={"logout"}*/}
+      {/*  className={"!bg-danger-500 absolute bottom-10"}*/}
+      {/*  onPress={logoutUser}*/}
+      {/*/>*/}
     </View>
   );
 };

@@ -36,8 +36,8 @@ export const LoginForm = () => {
   const onSubmit: SubmitHandler<LoginSchema> = ({email, password}) => {
     loginMutation({
       variables: {
-        email,
-        password,
+        email: email.trim(),
+        password: password.trim(),
       },
     });
   };

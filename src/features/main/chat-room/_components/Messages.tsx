@@ -92,7 +92,7 @@ export function Messages({roomData, typingUser, onTyping}: MessageProps) {
 
   return (
     <GiftedChat
-      minInputToolbarHeight={120}
+      minInputToolbarHeight={100}
       onInputTextChanged={text => {
         if (text === "") return;
         onTyping();
