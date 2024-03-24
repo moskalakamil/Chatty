@@ -25,7 +25,7 @@ export const LoginForm = () => {
     resolver: zodResolver(schema),
   });
 
-  const [loginMutation, {loading}] = useLoginMutation(data => {
+  const [loginMutation, {loading}] = useLoginMutation(async data => {
     if (!data.loginUser?.token) return;
 
     useAuthStore.getState().setToken(data.loginUser.token);

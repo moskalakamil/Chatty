@@ -5,7 +5,7 @@ export namespace UserApi {
     query user {
       user {
         id
-        email
+        firstName
       }
     }
   `);

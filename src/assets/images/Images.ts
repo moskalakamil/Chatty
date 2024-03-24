@@ -1,1 +1,3 @@
-export const images = {};
+export const images = {
+  defaultProfile: require("./Img/defaultProfile.png"),
+};

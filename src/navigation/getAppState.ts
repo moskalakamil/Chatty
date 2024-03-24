@@ -3,6 +3,8 @@ import {UserApi} from "@src/gql/user.gql";
 import {AppState, useAppStateStore} from "@src/stores/app-state-store";
 import {useAuthStore} from "@src/stores/auth-store";
 import {User, useUserStore} from "@src/stores/user.store";
+import {parseError} from "@src/utils/error/parseError";
+import {toast} from "@src/utils/toast";
 
 export async function getAppState(
   token: string | null,
@@ -17,12 +19,12 @@ export async function getAppState(
     query: UserApi.GET_CURRENT_USER,
   });
 
-  if (user?.id && user?.email) {
+  if (user?.id && user?.firstName) {
     return [
       "AUTHORIZED",
       {
         id: user.id,
-        email: user.email,
+        firstName: user.firstName,
       },
     ];
   }
@@ -32,9 +34,8 @@ export async function getAppState(
 
 export async function initApp(): Promise<[AppState, unknown]> {
   try {
-    console.log("1");
     const token = useAuthStore.getState().token;
-    console.log(token, "token123");
+
     const [nextState, user] = await getAppState(token);
 
     useAppStateStore.getState().setAppState(nextState);
@@ -42,7 +43,14 @@ export async function initApp(): Promise<[AppState, unknown]> {
 
     return [nextState, null];
   } catch (e) {
+    toast.error(parseError(e).message);
     useAppStateStore.getState().setAppState("NEED_AUTH");
     return ["NEED_AUTH", e];
   }
+}
+
+export async function logoutUser() {
+  client.resetStore();
+  useAuthStore.getState().setToken(null);
+  useAppStateStore.getState().setAppState("NEED_AUTH");
 }
